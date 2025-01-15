@@ -1,2 +1,2 @@
 # Akaela's Data Structures
-trying out GitHub for Girls Who Code
+this repository is for my Data Strucutures Class
