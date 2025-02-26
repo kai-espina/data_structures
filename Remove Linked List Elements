@@ -1,0 +1,22 @@
+// Remove Linked List Elements
+struct ListNode* removeElements(struct ListNode* head, int val) {
+    struct ListNode* dummy = (struct ListNode*)malloc(sizeof(struct ListNode));
+    dummy->next = head;
+    
+    struct ListNode* previous = dummy;
+    struct ListNode* current = head;
+    
+    while (current) {
+        if (current->val == val) {
+            previous->next = current->next; // Bypass the node
+            free(current); // Free memory
+        } else {
+            previous = current; // Move prev forward
+        }
+        current = previous->next; // Move curr forward
+    }
+    
+    head = dummy->next;
+    free(dummy); // Free dummy node
+    return head;
+}
