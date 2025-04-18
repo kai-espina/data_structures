@@ -1,0 +1,39 @@
+144. Binary Tree Preorder Traversal
+
+void preorder(struct TreeNode* root, int* result, int* returnSize) {
+    if (root == NULL) return;
+    
+    result[(*returnSize)++] = root->val; // root
+    preorder(root->left, result, returnSize); // left subtree
+    preorder(root->right, result, returnSize); // right subtree
+}
+
+int* preorderTraversal(struct TreeNode* root, int* returnSize) {
+    int* result = (int*)malloc(100 * sizeof(int)); // max 100 nodes
+    *returnSize = 0;
+    
+    preorder(root, result, returnSize);
+    
+    return result;
+}
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+94. Binary Tree In-Order Traversal
+
+void inorder(struct TreeNode* root, int* result, int* returnSize) {
+    if (root == NULL) return;
+    
+    inorder(root->left, result, returnSize); // left subtree
+    result[(*returnSize)++] = root->val;     // root
+    inorder(root->right, result, returnSize); // right subtree
+}
+
+int* inorderTraversal(struct TreeNode* root, int* returnSize) {
+    int* result = (int*)malloc(100 * sizeof(int)); // Max 100 nodes
+    *returnSize = 0;
+    
+    inorder(root, result, returnSize);
+    
+    return result;
+}
